@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>Metadata</h2>
+
+<mat-dialog-content >
+  
+   
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="data.desc"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Time</mat-label>
+        <input matInput [(ngModel)]="data.time">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Keywords</mat-label>
+        <textarea matInput [(ngModel)]="data.keywords"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Link</mat-label>
+        <input matInput [(ngModel)]="data.link[0].$.href">
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field>
+        <mat-label>Author name</mat-label>
+        <input matInput [(ngModel)]="data.author.name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Author email</mat-label>
+        <input matInput [(ngModel)]="data.author.email">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Author link</mat-label>
+        <input matInput [(ngModel)]="data.author.link.$.href">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Copyright license</mat-label>
+        <input matInput [(ngModel)]="data.copyright.license">
+    </mat-form-field>
+    <br>
+    <br>
+    Extensions
+    <div class="form-group" *ngFor="let item of data.extensions | keyvalue">
+        <mat-form-field>
+            <mat-label >{{item.key}}</mat-label>
+            <input matInput [(ngModel)]="item.value">
+        </mat-form-field>
+    </div>
+    
+    
+  
+
+
+    
+<mat-dialog-actions>
+   
+</mat-dialog-actions>
+</mat-dialog-content>
+<div class="buttons">
+    <button class="mat-raised-button"(click)="onCloseClick()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="onSaveClick()">Save</button>
+</div>

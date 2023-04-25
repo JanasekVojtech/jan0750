@@ -1,0 +1,26 @@
+<div class="map-container">
+  <div  id="map" ></div>
+</div>
+  
+  <!--
+  <div class="buttons" >
+    <mat-button-toggle [checked]="addWtp" (change)="onValChangeWtp($event.source.checked)" *ngIf="ifGpxIsSelected()">Add Waypoints</mat-button-toggle>
+    <mat-button-toggle [checked]="addTrk"  (change)="onValChangeTrk($event.source.checked)" *ngIf="ifGpxIsSelected()">Add Track</mat-button-toggle>
+    <mat-button-toggle [checked]="addRte" (change)="onValChangeRte($event.source.checked)" *ngIf="ifGpxIsSelected()">Add Route</mat-button-toggle>
+    <mat-button-toggle [checked]="addTrkAuto" (change)="onValChangeTrkAuto($event.source.checked)" *ngIf="ifGpxIsSelected()">Add TrackAuto </mat-button-toggle>
+  </div>
+-->
+  <div class="modeSelect">
+    <button  class="mat-raised-button mat-primary" (click)="exitDrawing()">Exit drawing</button>
+    Routing(car, bike, walking)
+   <mat-form-field>
+     <mat-select name="autRouting" [(value)]=routingSelect (selectionChange)="onValChangeMode($event.value)" >
+       <mat-option  [value]="'off'">OFF</mat-option>
+       <mat-option  [value]="'driving'">Car</mat-option>
+       <mat-option  [value]="'cycling'">Bike</mat-option>
+       <mat-option  [value]="'walking'">Walking</mat-option>
+     </mat-select>
+   </mat-form-field>
+   
+ </div>
+

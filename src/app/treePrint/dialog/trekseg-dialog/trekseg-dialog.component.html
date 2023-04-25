@@ -1,0 +1,65 @@
+<mat-tab-group>
+    <mat-tab label= "Settings">
+        <mat-dialog-content >
+        <mat-form-field>
+            <mat-label>Line color</mat-label>
+            <input matInput [(ngModel)]="data['extensions']['gpxx:TrackExtension']['gpxx:DisplayColor']">
+            <input [style.background]="data['extensions']['gpxx:TrackExtension']['gpxx:DisplayColor']" [(colorPicker)]="data['extensions']['gpxx:TrackExtension']['gpxx:DisplayColor']" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
+        </mat-form-field>
+    </mat-dialog-content>
+        <div class="buttons">
+            <button class="mat-raised-button"(click)="onCloseClick()">Close</button> 
+            &nbsp;
+            <button class="mat-raised-button mat-primary"(click)="onSaveClick()">Save</button>
+        </div>
+    </mat-tab>
+
+
+    <mat-tab label= "Track segment table">
+        <cdk-virtual-scroll-viewport appendOnly itemSize="20" class="example-viewport">
+
+           
+            
+           
+            <table mat-table [dataSource]="data.trkpt">
+
+                
+                <ng-container matColumnDef="expandedDetail">
+
+                <ng-container matColumnDef="lat">
+                <th mat-header-cell *matHeaderCellDef>  lat</th>
+                <td mat-cell *matCellDef="let element"> {{element.$.lat}} </td>
+                </ng-container>
+            
+               
+                <ng-container matColumnDef="lon">
+                <th mat-header-cell *matHeaderCellDef> lon </th>
+                <td mat-cell *matCellDef="let element"> {{element.$.lon}} </td>
+                </ng-container>
+            
+               
+                <ng-container matColumnDef="ele">
+                <th mat-header-cell *matHeaderCellDef> ele </th>
+                <td mat-cell *matCellDef="let element"> {{element.ele}} </td>
+                </ng-container>
+            
+               
+                <ng-container matColumnDef="time">
+                <th mat-header-cell *matHeaderCellDef> time </th>
+                <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="['lat', 'lon', 'ele', 'time']"></tr>
+                <tr mat-row *matRowDef="let row; columns: ['lat', 'lon', 'ele', 'time'];"></tr>
+            </ng-container>
+            </table>
+            <div class="buttons">
+                <button class="mat-raised-button"(click)="onCloseClick()">Close</button> 
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </mat-tab>
+        
+          
+           
+
+</mat-tab-group>

@@ -1,0 +1,89 @@
+
+ 
+
+.map-container {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0%;
+    bottom: 0;
+    margin: 0px; 
+  }
+  /*
+  .map-frame {
+    border: 1px solid black;
+    height: 100%;
+  }*/
+  
+  #map {
+    
+    height: 100%;
+  }
+
+  .buttons{
+    position:absolute;
+    z-index: 2;
+    left: 40%;
+    
+  }
+
+  .modeSelect{
+    position:absolute;
+    top: 0px;
+    z-index: 2000;
+    right: 365px;
+    background-color: white;
+  }
+
+
+ 
+  .leaflet-top.leaflet-left .leaflet-control-layers {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .leaflet-top.leaflet-left .leaflet-control-layers-list {
+    box-shadow: none;
+  }
+  
+  .leaflet-top.leaflet-left .leaflet-control-layers-toggle {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+
+  
+  
+  .mat-button-toggle {
+      border: 1px rgba(0,0,0,0) solid !important;
+      margin-top: 5px !important;
+      padding: 0 5px !important;
+      z-index: 3 !important;
+  }
+  
+  .mat-button-toggle:hover {
+      border: 1px #000 solid !important;
+      background-color: #FFF !important;
+      border-radius: 5px !important;
+  }
+  
+  .mat-button-toggle-checked {
+      
+      border: 1px #000 solid !important;
+      border-radius: 5px !important;
+      background-color: #FFF !important;
+  }
+  
+  .mat-button-toggle-input {
+      background-color: none !important;
+      padding-left: 32px !important;
+  }
+  
+
+
+ 

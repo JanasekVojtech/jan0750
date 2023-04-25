@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Move to GPX</h2>
+
+<mat-dialog-content >
+  
+
+                <mat-form-field>
+                    <mat-select name="selectGpx" [(value)]=chosenGPX >
+                        
+                            <mat-option *ngFor="let key of data;" [value]="key">
+                              {{key.name}}
+                            </mat-option>
+                        
+                       
+                    </mat-select>
+                </mat-form-field>
+         
+  
+
+<mat-dialog-actions>
+   
+</mat-dialog-actions>
+</mat-dialog-content>
+<div class="buttons">
+    <button class="mat-raised-button"(click)="onCloseClick()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="onSaveClick()">Save</button>
+</div>

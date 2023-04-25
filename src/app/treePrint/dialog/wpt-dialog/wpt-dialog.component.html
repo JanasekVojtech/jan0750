@@ -1,0 +1,147 @@
+
+<mat-tab-group>
+    <mat-tab label= "General settings">
+<mat-dialog-content >
+  
+    <mat-form-field>
+        <mat-label>Latitude</mat-label>
+        <input type="number" matInput [(ngModel)]="data.$.lat">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Longitude</mat-label>
+        <input type="number" matInput [(ngModel)]="data.$.lon">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Altitude</mat-label>
+        <input type="number" matInput [(ngModel)]="data.ele">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Time</mat-label>
+        <input type="datetime-local" matInput [(ngModel)]="data.time">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="text" matInput [(ngModel)]="data.name">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Comment</mat-label>
+        <textarea type="text" matInput [(ngModel)]="data.cmt"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea type="text"  matInput [(ngModel)]="data.desc"></textarea>
+    </mat-form-field>
+  
+    <br>
+    
+    <br>
+    Waypoint icon
+    <mat-form-field>
+        <mat-select name="selectGpx" [(value)]=chosenIcon >                
+            <mat-option *ngFor="let key of icon;" [value]="key.name">
+                <img height="24px" src={{key.file}}/> {{key.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    Extensions
+    <div class="form-group" *ngFor="let item of data.extensions | keyvalue">
+        <mat-form-field>
+            <mat-label >{{item.key}}</mat-label>
+            <input matInput [(ngModel)]="item.value">
+        </mat-form-field>
+    </div>
+    
+
+
+
+</mat-dialog-content>
+<div class="buttons">
+    <button class="mat-raised-button"(click)="onCloseClick()">Close</button>
+    &nbsp;
+    <button class="mat-raised-button mat-primary"(click)="onSaveClick()">Save</button>
+</div>
+
+</mat-tab>
+
+
+
+
+
+
+
+
+
+<mat-tab label="Advanced settings">
+
+<mat-dialog-content >
+<mat-form-field>
+    <mat-label>Source</mat-label>
+    <textarea  type="text" matInput [(ngModel)]="data.src"></textarea>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Link</mat-label>
+    <input  type="text" matInput [(ngModel)]="data.link">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Fix</mat-label>
+    <select matNativeControl [(ngModel)]="data.link">
+      <option value="none">None</option>
+      <option value="2d">2d</option>
+      <option value="3d">3d</option>
+      <option value="dgps">dgps</option>
+      <option value="pps">pps</option>
+    </select>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <mat-label>Satelites</mat-label>
+    <input matInput [(ngModel)]="data.sat">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Age of data</mat-label>
+    <input matInput [(ngModel)]="data.ageofdgpsdata">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>dgpsid</mat-label>
+    <input matInput [(ngModel)]="data.dgpsid">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <mat-label>HDOP</mat-label>
+    <input matInput [(ngModel)]="data.hdop">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>VDOP</mat-label>
+    <input matInput [(ngModel)]="data.vdop">
+</mat-form-field>
+<mat-form-field>
+    <mat-label>PDOP</mat-label>
+    <input matInput [(ngModel)]="data.pdop">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <mat-label>Type</mat-label>
+    <input matInput [(ngModel)]="data.type">
+</mat-form-field>
+
+
+</mat-dialog-content>
+
+<div class="buttons">
+    <button class="mat-raised-button"(click)="onCloseClick()">Close</button>
+    &nbsp;
+    <button class="mat-raised-button mat-primary"(click)="onSaveClick()">Save</button>
+</div>
+
+
+</mat-tab>
+</mat-tab-group>

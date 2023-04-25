@@ -1,0 +1,22 @@
+.example-viewport {
+    height: 70vh;
+    width: 100vh;
+  
+  }
+  .mat-cell{
+      padding: 10px;
+  }
+
+  .mat-dialog-content{
+      margin: 0;
+  }
+
+  .buttons{
+    float: right;
+    margin: 5px;
+    padding: 5px;
+}
+
+.mat-table.cdk-table{
+    width: 100%;
+}

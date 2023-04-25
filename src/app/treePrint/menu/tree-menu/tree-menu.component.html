@@ -1,0 +1,25 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="showTrack()">
+      <mat-icon>directions_walk</mat-icon>
+      <span>Show file</span>
+    </button>
+    <button mat-menu-item (click)="delete()">
+      <mat-icon>delete</mat-icon>
+      <span>Delete file</span>
+    </button>
+    <button mat-menu-item (click)="save()">
+      <mat-icon>save</mat-icon>
+      <span>Save file</span>
+    </button>
+    <button mat-menu-item (click)="rename()">
+      <mat-icon>drive_file_rename_outline</mat-icon>
+      <span>Rename file</span>
+    </button>
+    <button mat-menu-item (click)="downloadFile()">
+      <mat-icon>arrow_downward</mat-icon>
+      <span>Download file</span>
+    </button>
+  </mat-menu>

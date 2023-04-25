@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Rename file</h2>
+
+<mat-dialog-content >
+  
+    <mat-form-field>
+        <mat-label>File Name</mat-label>
+        <input matInput [(ngModel)]="data">
+    </mat-form-field>
+    
+  
+
+<mat-dialog-actions>
+   
+</mat-dialog-actions>
+</mat-dialog-content>
+<div class="buttons">
+    <button class="mat-raised-button"(click)="onCloseClick()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="onSaveClick()">Save</button>
+</div>
+

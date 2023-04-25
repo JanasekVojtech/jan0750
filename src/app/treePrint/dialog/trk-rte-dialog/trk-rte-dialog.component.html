@@ -1,0 +1,118 @@
+<mat-tab-group>
+    <mat-tab label="Settings">
+        <mat-dialog-content >
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input type="text" matInput [(ngModel)]="data.name">
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Comment</mat-label>
+                <textarea type="text" matInput [(ngModel)]="data.cmt"></textarea>
+            </mat-form-field>
+            <br>
+            
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea type="text" matInput [(ngModel)]="data.desc"></textarea>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Source</mat-label>
+                <textarea type="text" matInput [(ngModel)]="data.src"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Link</mat-label>
+                <input type="text" matInput [(ngModel)]="data.link[0].$.href">
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Number</mat-label>
+                <input type="number" matInput [(ngModel)]="data.number">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Type</mat-label>
+                <input matInput [(ngModel)]="data.type">
+            </mat-form-field>
+            <br>
+            <div *ngIf="data['extensions'] != undefined">
+                <div *ngIf="data['extensions']['gpxx:RouteExtension'] == undefined ;then track else route"></div>
+                <ng-template #track>
+                  <!--  <mat-form-field>
+                        <mat-label>Color</mat-label>
+                        <input matInput [(ngModel)]="data['extensions']['gpxx:TrackExtension']['gpxx:DisplayColor']">
+                        <input [style.background]="data['extensions']['gpxx:TrackExtension']['gpxx:DisplayColor']" [(colorPicker)]="data['extensions']['gpxx:TrackExtension']['gpxx:DisplayColor']" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
+                    </mat-form-field>
+                -->
+                </ng-template>
+                <ng-template #route>
+                    <mat-form-field>
+                        <mat-label>Line color</mat-label>
+                        <input matInput [(ngModel)]="data['extensions']['gpxx:RouteExtension']['gpxx:DisplayColor']">
+                        <input [style.background]="data['extensions']['gpxx:RouteExtension']['gpxx:DisplayColor']" [(colorPicker)]="data['extensions']['gpxx:RouteExtension']['gpxx:DisplayColor']" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
+                    </mat-form-field>
+                </ng-template>
+            </div>
+            
+            
+            <br>
+            Extensions
+            <div class="form-group" *ngFor="let item of data.extensions | keyvalue">
+                <mat-form-field>
+                    <mat-label >{{item.key}}</mat-label>
+                    <input matInput [(ngModel)]="item.value">
+                </mat-form-field>
+            </div>
+           
+        
+        
+        
+        </mat-dialog-content>
+        <div class="buttons">
+            <button class="mat-raised-button"(click)="onCloseClick()">Close</button>
+            &nbsp;
+            <button class="mat-raised-button mat-primary"(click)="onSaveClick()">Save</button>
+        </div>
+        
+    
+    <div *ngIf="data.trkseg!=null"> 
+    <mat-tab label="Track Segments"> 
+        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+           
+          
+            <table mat-table [dataSource]="data.trkseg">
+
+                <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+                <!-- Time Column -->
+                <ng-container matColumnDef="Track">
+                <th mat-header-cell *matHeaderCellDef> Track Segments</th>
+                <td mat-cell *matCellDef="let element; let i = index"> Track Segment{{i + 1}}  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell  *matHeaderCellDef >  </th>
+                    <td mat-cell *matCellDef="let element" >
+                        
+                         <button mat-raised-button (click)="showTrkseg(element)">Show</button>
+                    </td>
+                  </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="['Track', 'actions']"></tr>
+                <tr mat-row *matRowDef="let row; columns: ['Track', 'actions'];"></tr>
+            </table>
+        </cdk-virtual-scroll-viewport>
+        <div class="buttons">
+            <button class="mat-raised-button"(click)="onCloseClick()">Close</button> 
+        </div>
+            
+            </mat-tab>
+        </div>       
+
+
+
+
+

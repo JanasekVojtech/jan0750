@@ -1,0 +1,111 @@
+
+  
+
+ <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+        <div *ngIf="node.name !='Header'">
+         
+          <div *ngIf="node.obj==null ">
+            <ng-container *ngIf="node.name=='Metadata'"><img src="../../assets/images/baseline_metadata_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Waypoint'"><img src="../../assets/images/baseline_place_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Route'"><img src="../../assets/images/baseline_route_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Track'"><img src="../../assets/images/baseline_timeline_black_24dp.png"></ng-container>
+            {{node.name}}</div>
+        <div class="secondaryNode">
+          <div *ngIf="node.obj!=null">
+            <ng-container *ngIf="node.name!=null ; then haveName else noName" ></ng-container>
+              <ng-template #haveName>
+                  <ng-container *ngIf="node.obj.name!=null ; then haveObjName else noObjName" ></ng-container>
+                  <ng-template #noObjName><a [routerLink]="[]" (click)="showInMap(node.obj, node.type)" class="hyperlink"><span class="secondaryText">{{node.name}}</span></a></ng-template>
+                  <ng-template #haveObjName><a [routerLink]="[]" (click)="showInMap(node.obj, node.type)" class="hyperlink"><span class="secondaryText">{{node.obj.name}}</span></a></ng-template>
+              </ng-template>
+              <ng-template #noName>><span class="secondaryText">{{node.obj.name}}</span></ng-template>
+            <app-edit-menu [data]=node></app-edit-menu>
+            
+          </div>    
+        </div>
+      </div>
+    </mat-tree-node>
+   
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+        <div  class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle
+                  [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          
+          <div *ngIf="node.obj==null "  [class.primaryNode]="node.id!=null"  > 
+            <ng-container *ngIf="node.id!=null ; then haveID else noID" ></ng-container>
+                
+                  <ng-template #haveID>
+                    <div *ngIf="node.selected == true;then selectedTrue else selectedFalse"></div>
+                    <ng-template #selectedTrue>
+                      <a [routerLink]="[]" (click)="showFullGpx(node, true)" class="hyperlink">
+                      <b>{{node.name}}</b>
+                      </a> 
+                    </ng-template>
+                    <ng-template #selectedFalse>
+                      <a [routerLink]="[]" (click)="showFullGpx(node, true)" class="hyperlink">
+                        <span class="spanHyperlink">{{node.name}}</span>
+                        
+                      </a> 
+                    </ng-template>
+
+                    
+                      <div *ngIf="node.isShown == true;then isShownTrue else isShownFalse" ></div>
+                        &nbsp;&nbsp;&nbsp;
+                        <ng-template #isShownTrue>
+                          <a [routerLink]="[]" (click)="showHideGpx(node)" class="hyperlink">
+                            <mat-icon>visibility</mat-icon>
+                          </a>
+                        </ng-template>
+                        <ng-template #isShownFalse>
+                          <a [routerLink]="[]" (click)="showHideGpx(node)" class="hyperlink">
+                            <mat-icon>visibility_off</mat-icon>
+                          </a>
+                        </ng-template>
+                        
+                        &nbsp;
+                      
+                   
+                    <app-tree-menu  [node]=node></app-tree-menu>
+                  </ng-template>
+                
+                  <ng-template #noID>
+                    <ng-container *ngIf="node.name=='Metadata'"><img src="../../assets/images/baseline_metadata_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Waypoint'"><img src="../../assets/images/baseline_place_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Route'"><img src="../../assets/images/baseline_route_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Track'"><img src="../../assets/images/baseline_timeline_black_24dp.png"></ng-container>
+                    {{node.name}} 
+                  </ng-template>
+          </div> 
+          <div *ngIf="node.obj!=null " class="secondaryNode">
+           
+            <a [routerLink]="[]" (click)="showInMap(node.obj, node.type)" class="hyperlink"><span class="secondaryText">{{node.obj.name}}</span></a> <app-edit-menu [data]=node></app-edit-menu>
+          </div>
+          
+         
+          
+        </div>
+        
+        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+            role="group">
+          <ng-container matTreeNodeOutlet></ng-container>
+      </div>
+    </mat-nested-tree-node>
+  </mat-tree> 
+
+
+
+
+
+
+
+
+
+
+
+
+  

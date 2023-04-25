@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 
+"../node_modules/leaflet.heightgraph/dist/L.Control.Heightgraph.min.css";
+@import '../node_modules/leaflet-geosearch/dist/geosearch.css';
+@import "./app/map/leaflet-contextmenu/dist/leaflet.contextmenu.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-root{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }

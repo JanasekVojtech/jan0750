@@ -1,0 +1,44 @@
+
+
+<mat-toolbar color="primary">
+  <div class="spacer"></div>
+  <button mat-icon-button class="mat-sidenav-end" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+ 
+
+
+</mat-toolbar>
+  
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" position="end" class="sidenav" opened>
+      <!-- sidenav content here -->
+      <div class="load-gpx">
+        <input class= "fileIn" type="file" id="fileSelector" (change)="add($event)" #fileUpload>
+        <button  class="mat-raised-button mat-primary" (click)="fileUpload.click()">Import file</button>
+        <button  class="mat-raised-button mat-primary" (click)="newGpxFile()">New GPX file</button>
+        <app-tree></app-tree>
+    </div>
+    </mat-sidenav>
+  
+   
+
+    <mat-sidenav-content  class="content">
+      
+      
+      <!-- main content here -->
+      
+      <app-map></app-map>
+        
+        
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+
+    
+
+
+ 
+ 
