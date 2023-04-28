@@ -6,10 +6,10 @@
         <div *ngIf="node.name !='Header'">
          
           <div *ngIf="node.obj==null ">
-            <ng-container *ngIf="node.name=='Metadata'"><img src="../../assets/images/baseline_metadata_black_24dp.png"></ng-container>
-                    <ng-container *ngIf="node.name=='Waypoint'"><img src="../../assets/images/baseline_place_black_24dp.png"></ng-container>
-                    <ng-container *ngIf="node.name=='Route'"><img src="../../assets/images/baseline_route_black_24dp.png"></ng-container>
-                    <ng-container *ngIf="node.name=='Track'"><img src="../../assets/images/baseline_timeline_black_24dp.png"></ng-container>
+            <ng-container *ngIf="node.name=='Metadata'"><img src="./assets/images/baseline_metadata_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Waypoint'"><img src="./assets/images/baseline_place_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Route'"><img src="./assets/images/baseline_route_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Track'"><img src="./assets/images/baseline_timeline_black_24dp.png"></ng-container>
             {{node.name}}</div>
         <div class="secondaryNode">
           <div *ngIf="node.obj!=null">
@@ -74,10 +74,10 @@
                   </ng-template>
                 
                   <ng-template #noID>
-                    <ng-container *ngIf="node.name=='Metadata'"><img src="../../assets/images/baseline_metadata_black_24dp.png"></ng-container>
-                    <ng-container *ngIf="node.name=='Waypoint'"><img src="../../assets/images/baseline_place_black_24dp.png"></ng-container>
-                    <ng-container *ngIf="node.name=='Route'"><img src="../../assets/images/baseline_route_black_24dp.png"></ng-container>
-                    <ng-container *ngIf="node.name=='Track'"><img src="../../assets/images/baseline_timeline_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Metadata'"><img src="./assets/images/baseline_metadata_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Waypoint'"><img src="./assets/images/baseline_place_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Route'"><img src="./assets/images/baseline_route_black_24dp.png"></ng-container>
+                    <ng-container *ngIf="node.name=='Track'"><img src="./assets/images/baseline_timeline_black_24dp.png"></ng-container>
                     {{node.name}} 
                   </ng-template>
           </div> 
