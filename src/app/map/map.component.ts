@@ -42,8 +42,8 @@ export class MapComponent implements AfterViewInit {
   private rteArr: Array<any> = []
   private rteMode:Boolean = false;
 
-  private extendTrk:boolean = false;
-  private extendRte:boolean = false;
+  public extendTrk:boolean = false;
+  public extendRte:boolean = false;
   private startPoint:Array<number> =[]
   private endPoint:Array<number> =[]
   private extendObj:any ={}
@@ -61,7 +61,7 @@ export class MapComponent implements AfterViewInit {
   
 
   private iconWtpDef = L.icon({
-    iconUrl: "../../assets/images/wtpIcons/Flag.png",
+    iconUrl: "./assets/images/wtpIcons/Flag.png",
     iconSize:     [24, 24], // size of the icon
     iconAnchor:   [12, 12], // point of the icon which will correspond to marker's location
     popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
@@ -84,22 +84,22 @@ export class MapComponent implements AfterViewInit {
 	    contextmenuItems: [
       { text: 'Add Waypoint',
       callback: (e:any) => { this.addWtpOnRightClick(e);},
-      icon: '../../assets/images/baseline_place_black_24dp.png',},
+      icon: './assets/images/baseline_place_black_24dp.png',},
       {separator: true},
       { text: 'Add Track',
 	    callback: (e:any) => { this.onValChangeTrk(true); this.trkArr.push([e.latlng.lat, e.latlng.lng])},
-      icon: '../../assets/images/baseline_timeline_black_24dp.png'},
+      icon: './assets/images/baseline_timeline_black_24dp.png'},
       { text: 'Add TrackAuto',
 	    callback: (e:any) => { this.onValChangeTrkAuto(true); this.trkArr.push([e.latlng.lat, e.latlng.lng])},
-      icon: '../../assets/images/baseline_find_replace_black_24dp.png'},
+      icon: './assets/images/baseline_find_replace_black_24dp.png'},
       {separator: true},
       { text: 'Add Route',
 	    callback: (e:any) => { this.onValChangeRte(true); this.rteArr.push([e.latlng.lat, e.latlng.lng])},
-      icon: '../../assets/images/baseline_route_black_24dp.png'},
+      icon: './assets/images/baseline_route_black_24dp.png'},
       {separator: true},
       { text: 'Exit drawing',
 	    callback: (e:any) => { this.exitDrawing(); },
-      icon: '../../assets/images/baseline_close_black_24dp.png'},
+      icon: './assets/images/baseline_close_black_24dp.png'},
       
     ],
       editable: true,
@@ -204,16 +204,16 @@ export class MapComponent implements AfterViewInit {
           contextmenuItems: [
           { text: 'Delete Waypoint',
           callback: (e:any) => { this.delWtpByClick(e); }, index: 1,
-          icon: '../../assets/images/baseline_close_black_24dp.png'},
+          icon: './assets/images/baseline_close_black_24dp.png'},
           { text: 'Move Waypoint',
           callback: (e:any) => { this.moveWtp(e); }, index: 2,
-          icon: '../../assets/images/baseline_open_with_black_24dp.png'},
+          icon: './assets/images/baseline_open_with_black_24dp.png'},
           { text: 'Copy of Waypoint',
           callback: (e:any) => { this.copyWaypoint(e); }, index: 3,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
           { text: 'Move to another GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'wtp'); }, index: 4,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
 
         ]  
         }  
@@ -446,7 +446,7 @@ export class MapComponent implements AfterViewInit {
         for(let i = 0 ; i < node!.children![1]?.children!.length; i++){
           if(node.children![1]?.children![i].obj.sym != undefined){
             iconWtp = L.icon({
-            iconUrl: "../../assets/images/wtpIcons/"+ node.children![1]?.children![i].obj.sym + '.png',
+            iconUrl: "./assets/images/wtpIcons/"+ node.children![1]?.children![i].obj.sym + '.png',
             iconSize:     [24, 24], // size of the icon
             iconAnchor:   [12, 12], // point of the icon which will correspond to marker's location
             popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
@@ -464,16 +464,16 @@ export class MapComponent implements AfterViewInit {
               contextmenuItems: [
               { text: 'Delete Waypoint',
               callback: (e:any) => { this.delWtpByClick(e); }, index: 1,
-              icon: '../../assets/images/baseline_close_black_24dp.png'},
+              icon: './assets/images/baseline_close_black_24dp.png'},
               { text: 'Move Waypoint',
               callback: (e:any) => { this.moveWtp(e); }, index: 2,
-              icon: '../../assets/images/baseline_open_with_black_24dp.png'},
+              icon: './assets/images/baseline_open_with_black_24dp.png'},
               { text: 'Copy of Waypoint',
               callback: (e:any) => { this.copyWaypoint(e); }, index: 3,
-              icon: '../../assets/images/content_copy_FILL_24pd.png'},
+              icon: './assets/images/content_copy_FILL_24pd.png'},
               { text: 'Move to another GPX',
               callback: (e:any) => { this.moveToGpx(node.children![1]?.children![i].obj, 'wtp'); }, index: 4,
-              icon: '../../assets/images/baseline_move_black_24dp.png'}
+              icon: './assets/images/baseline_move_black_24dp.png'}
             ]  
             }
             ).on('dblclick', (e:any)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"wtp"})}).addTo(this.mymap);
@@ -517,34 +517,34 @@ export class MapComponent implements AfterViewInit {
                 contextmenuItems: [
                 { text: 'Delete Track',
                 callback: (e:any) => { this.delTrkByClick(e, node!.children![3]?.children![i].children![j].obj);},index: 4,
-                icon: '../../assets/images/baseline_delete_black_24dp.png'},
+                icon: './assets/images/baseline_delete_black_24dp.png'},
                 { text: 'Continue Track',
                 callback: (e:any) => { this.extendTrack(e, node!.children![3]?.children![i].children![j].obj); },index: 5,
-                icon: '../../assets/images/baseline_east_black_24dp.png'},
+                icon: './assets/images/baseline_east_black_24dp.png'},
                 { text: 'Add Track point',
                 callback: (e:any) => { this.addTrackPoint(e, node!.children![3]?.children![i].children![j].obj); },index: 6,
-                icon: '../../assets/images/baseline_add_black_24dp.png'},
+                icon: './assets/images/baseline_add_black_24dp.png'},
                 { text: 'Split Track',
                 callback: (e:any) => { this.splitTrack(e, node!.children![3]?.children![i].children![j].obj); },index: 7,
-                icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+                icon: './assets/images/baseline_call_split_black_24dp.png'},
                 { text: 'Show/Hide Track points',
                 callback: (e:any) => { this.showHidePoints( node!.children![3]?.children![i].children![j].obj); },index: 8,
-                icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+                icon: './assets/images/baseline_visibility_black_24dp.png'},
                 { text: 'Reverse Track',
                 callback: (e:any) => { this.reverseTrack(node!.children![3]?.children![i].children![j].obj); },index: 9,
-                icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+                icon: './assets/images/baseline_sync_alt_24dp.png'},
                 { text: 'Copy of Track',
                 callback: (e:any) => { this.copyTrack(node!.children![3]?.children![i].children![j].obj); },index: 10,
-                icon: '../../assets/images/content_copy_FILL_24pd.png'},
+                icon: './assets/images/content_copy_FILL_24pd.png'},
                 { text: 'Show graph of Track',
                 callback: (e:any) => { this.showGraph(node!.children![3]?.children![i].children![j].obj.trkpt); },index: 11,
-                icon: '../../assets/images/icons8-graph-24.png'},
+                icon: './assets/images/icons8-graph-24.png'},
                 { text: 'Move Track to other GPX',
                 callback: (e:any) => { this.moveToGpx(node!.children![3]?.children![i].children![j].obj, 'trk'); }, index: 12,
-                icon: '../../assets/images/baseline_move_black_24dp.png'},
+                icon: './assets/images/baseline_move_black_24dp.png'},
                 { text: 'Move Track segment to another GPX',
                 callback: (e:any) => { this.moveToGpx(node!.children![3]?.children![i].children![j].obj, 'trkseg'); }, index: 13,
-                icon: '../../assets/images/baseline_move_black_24dp.png'}
+                icon: './assets/images/baseline_move_black_24dp.png'}
               ]  
               }
               ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"trkseg"})}).addTo(this.mymap);
@@ -587,34 +587,34 @@ export class MapComponent implements AfterViewInit {
                   contextmenuItems: [
                   { text: 'Delete Route',
                   callback: (e:any) => { this.delRteByClick(e, node!.children![2]?.children![i].obj); },index: 6,
-                  icon: '../../assets/images/baseline_close_black_24dp.png'},
+                  icon: './assets/images/baseline_close_black_24dp.png'},
                   { text: 'Continue Route',
                     callback: (e:any) => { this.extendRoute(e, node!.children![2]?.children![i].obj); },index: 7,
-                    icon: '../../assets/images/baseline_east_black_24dp.png'},
+                    icon: './assets/images/baseline_east_black_24dp.png'},
                   { text: 'Add Route point',
                     callback: (e:any) => { this.addRoutePoint(e, node!.children![2]?.children![i].obj); },index: 8,
-                    icon: '../../assets/images/baseline_add_black_24dp.png'},
+                    icon: './assets/images/baseline_add_black_24dp.png'},
                   { text: 'Split Route',
                     callback: (e:any) => { this.splitRoute(e, node!.children![2]?.children![i].obj); },index: 9,
-                    icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+                    icon: './assets/images/baseline_call_split_black_24dp.png'},
                   { text: 'Show/Hide Route points',
                     callback: (e:any) => { this.showHidePoints(  node!.children![2]?.children![i].obj); },index: 10,
-                    icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+                    icon: './assets/images/baseline_visibility_black_24dp.png'},
                   { text: 'Reverse Route',
                     callback: (e:any) => { this.reverseRoute(  node!.children![2]?.children![i].obj); },index: 11,
-                    icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+                    icon: './assets/images/baseline_sync_alt_24dp.png'},
                   { text: 'Copy of Route',
                     callback: (e:any) => { this.copyRoute(  node!.children![2]?.children![i].obj); },index: 12,
-                    icon: '../../assets/images/content_copy_FILL_24pd.png'},
+                    icon: './assets/images/content_copy_FILL_24pd.png'},
                   { text: 'Show graph of Route',
                     callback: (e:any) => { this.showGraph(node!.children![2]?.children![i].obj.rtept); },index: 13,
-                    icon: '../../assets/images/icons8-graph-24.png'},
+                    icon: './assets/images/icons8-graph-24.png'},
                   { text: 'Transfer Route to Track',
                     callback: (e:any) => { this.transferRteToTrk(node!.children![2]?.children![i].obj.rtept); },index: 14,
-                    icon: '../../assets/images/content_copy_FILL_24pd.png'},
+                    icon: './assets/images/content_copy_FILL_24pd.png'},
                   { text: 'Move to other GPX',
                     callback: (e:any) => { this.moveToGpx(node!.children![2]?.children![i].obj, 'rte'); }, index: 15,
-                    icon: '../../assets/images/baseline_move_black_24dp.png'}
+                    icon: './assets/images/baseline_move_black_24dp.png'}
                     
                 ]  
                 }
@@ -652,34 +652,34 @@ export class MapComponent implements AfterViewInit {
                   contextmenuItems: [
                   { text: 'Delete Route',
                   callback: (e:any) => { this.delRteByClick(e, node!.children![2]?.children![i].obj); },index: 6,
-                  icon: '../../assets/images/baseline_close_black_24dp.png'},
+                  icon: './assets/images/baseline_close_black_24dp.png'},
                   { text: 'Continue Route',
                     callback: (e:any) => { this.extendRoute(e, node!.children![2]?.children![i].obj); },index: 7,
-                    icon: '../../assets/images/baseline_east_black_24dp.png'},
+                    icon: './assets/images/baseline_east_black_24dp.png'},
                   { text: 'Add Route point',
                     callback: (e:any) => { this.addRoutePoint(e, node!.children![2]?.children![i].obj); },index: 8,
-                    icon: '../../assets/images/baseline_add_black_24dp.png'},
+                    icon: './assets/images/baseline_add_black_24dp.png'},
                   { text: 'Split Route',
                     callback: (e:any) => { this.splitRoute(e, node!.children![2]?.children![i].obj); },index: 9,
-                    icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+                    icon: './assets/images/baseline_call_split_black_24dp.png'},
                   { text: 'Show/Hide Route points',
                     callback: (e:any) => { this.showHidePoints(  node!.children![2]?.children![i].obj); },index: 10,
-                    icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+                    icon: './assets/images/baseline_visibility_black_24dp.png'},
                   { text: 'Reverse Route',
                     callback: (e:any) => { this.reverseRoute(  node!.children![2]?.children![i].obj); },index: 11,
-                    icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+                    icon: './assets/images/baseline_sync_alt_24dp.png'},
                   { text: 'Copy of Route',
                     callback: (e:any) => { this.copyRoute(  node!.children![2]?.children![i].obj); },index: 12,
-                    icon: '../../assets/images/content_copy_FILL_24pd.png'},
+                    icon: './assets/images/content_copy_FILL_24pd.png'},
                   { text: 'Show graph of Route',
                     callback: (e:any) => { this.showGraph(node!.children![2]?.children![i].obj.rtept); },index: 13,
-                    icon: '../../assets/images/icons8-graph-24.png'},
+                    icon: './assets/images/icons8-graph-24.png'},
                   { text: 'Transfer Route to Track',
                     callback: (e:any) => { this.transferRteToTrk(node!.children![2]?.children![i].obj.rtept); },index: 14,
-                    icon: '../../assets/images/content_copy_FILL_24pd.png'},
+                    icon: './assets/images/content_copy_FILL_24pd.png'},
                   { text: 'Move to other GPX',
                     callback: (e:any) => { this.moveToGpx(node!.children![2]?.children![i].obj, 'rte'); }, index: 15,
-                    icon: '../../assets/images/baseline_move_black_24dp.png'}
+                    icon: './assets/images/baseline_move_black_24dp.png'}
                 ]  
                 }
                 ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"rte"})}).addTo(this.mymap);
@@ -874,16 +874,16 @@ export class MapComponent implements AfterViewInit {
         contextmenuItems: [
         { text: 'Delete Waypoint',
         callback: (e:any) => { this.delWtpByClick(e); }, index: 1,
-        icon: '../../assets/images/baseline_close_black_24dp.png'},
+        icon: './assets/images/baseline_close_black_24dp.png'},
         { text: 'Move Waypoint',
         callback: (e:any) => { this.moveWtp(e); }, index: 2,
-        icon: '../../assets/images/baseline_open_with_black_24dp.png'},
+        icon: './assets/images/baseline_open_with_black_24dp.png'},
         { text: 'Copy of Waypoint',
         callback: (e:any) => { this.copyWaypoint(e); }, index: 3,
-        icon: '../../assets/images/content_copy_FILL_24pd.png'},
+        icon: './assets/images/content_copy_FILL_24pd.png'},
         { text: 'Move to another GPX',
         callback: (e:any) => { this.moveToGpx(newObj, 'wtp'); }, index: 4,
-        icon: '../../assets/images/baseline_move_black_24dp.png'}
+        icon: './assets/images/baseline_move_black_24dp.png'}
       ]  
       }  
       ).on('dblclick', (e:any)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"wtp"})}).addTo(this.mymap);
@@ -917,34 +917,34 @@ export class MapComponent implements AfterViewInit {
           contextmenuItems: [
           { text: 'Delete Track',
           callback: (e:any) => { this.delTrkByClick(e, newObj); },index: 4,
-          icon: '../../assets/images/baseline_delete_black_24dp.png'},
+          icon: './assets/images/baseline_delete_black_24dp.png'},
           { text: 'Continue Track',
           callback: (e:any) => { this.extendTrack(e, newObj); },index: 5,
-          icon: '../../assets/images/baseline_east_black_24dp.png'},
+          icon: './assets/images/baseline_east_black_24dp.png'},
           { text: 'Add Track point',
           callback: (e:any) => { this.addTrackPoint(e, newObj); },index: 6,
-          icon: '../../assets/images/baseline_add_black_24dp.png'},
+          icon: './assets/images/baseline_add_black_24dp.png'},
           { text: 'Split Track',
           callback: (e:any) => { this.splitTrack(e, newObj); },index: 7,
-          icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+          icon: './assets/images/baseline_call_split_black_24dp.png'},
           { text: 'Show/Hide Track points',
           callback: (e:any) => { this.showHidePoints( newObj); },index: 8,
-          icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+          icon: './assets/images/baseline_visibility_black_24dp.png'},
           { text: 'Reverse Track',
           callback: (e:any) => { this.reverseTrack(newObj); },index: 9,
-          icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+          icon: './assets/images/baseline_sync_alt_24dp.png'},
           { text: 'Copy of Track',
           callback: (e:any) => { this.copyTrack(newObj); },index: 10,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
           { text: 'Show graph of Track',
           callback: (e:any) => { this.showGraph(newObj.trkpt); },index: 11,
-          icon: '../../assets/images/icons8-graph-24.png'},
+          icon: './assets/images/icons8-graph-24.png'},
           { text: 'Move Track to other GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'trk'); }, index: 12,
-          icon: '../../assets/images/baseline_move_black_24dp.png'},
+          icon: './assets/images/baseline_move_black_24dp.png'},
           { text: 'Move Track segment to another GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'trkseg'); }, index: 13,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
         ]  
         }
         ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"trkseg"})}).addTo(this.mymap);
@@ -1006,34 +1006,34 @@ export class MapComponent implements AfterViewInit {
         contextmenuItems: [
         { text: 'Delete Route',
         callback: (e:any) => { this.delRteByClick(e, newObj); },index: 6,
-        icon: '../../assets/images/baseline_close_black_24dp.png'},
+        icon: './assets/images/baseline_close_black_24dp.png'},
         { text: 'Continue Route',
           callback: (e:any) => { this.extendRoute(e, newObj); },index: 7,
-          icon: '../../assets/images/baseline_east_black_24dp.png'},
+          icon: './assets/images/baseline_east_black_24dp.png'},
         { text: 'Add Route point',
           callback: (e:any) => { this.addRoutePoint(e, newObj); },index: 8,
-          icon: '../../assets/images/baseline_add_black_24dp.png'},
+          icon: './assets/images/baseline_add_black_24dp.png'},
         { text: 'Split Route',
           callback: (e:any) => { this.splitRoute(e, newObj); },index: 9,
-          icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+          icon: './assets/images/baseline_call_split_black_24dp.png'},
         { text: 'Show/Hide Route points',
           callback: (e:any) => { this.showHidePoints(  newObj); },index: 10,
-          icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+          icon: './assets/images/baseline_visibility_black_24dp.png'},
         { text: 'Reverse Route',
           callback: (e:any) => { this.reverseRoute(  newObj); },index: 11,
-          icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+          icon: './assets/images/baseline_sync_alt_24dp.png'},
         { text: 'Copy of Route',
           callback: (e:any) => { this.copyRoute( newObj); },index: 12,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
         { text: 'Show graph of Route',
           callback: (e:any) => { this.showGraph(newObj.rtept); },index: 13,
-          icon: '../../assets/images/icons8-graph-24.png'},
+          icon: './assets/images/icons8-graph-24.png'},
         { text: 'Transfer Route to Track',
           callback: (e:any) => { this.transferRteToTrk(newObj.rtept); },index: 14,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
         { text: 'Move to other GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'rte'); }, index: 15,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
       ]  
       }
       ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"rte"})}).addTo(this.mymap);
@@ -1071,34 +1071,34 @@ export class MapComponent implements AfterViewInit {
         contextmenuItems: [
         { text: 'Delete Route',
         callback: (e:any) => { this.delRteByClick(e, newObj); },index: 6,
-        icon: '../../assets/images/baseline_close_black_24dp.png'},
+        icon: './assets/images/baseline_close_black_24dp.png'},
         { text: 'Continue Route',
           callback: (e:any) => { this.extendRoute(e, newObj); },index: 7,
-          icon: '../../assets/images/baseline_east_black_24dp.png'},
+          icon: './assets/images/baseline_east_black_24dp.png'},
         { text: 'Add Route point',
           callback: (e:any) => { this.addRoutePoint(e, newObj); },index: 8,
-          icon: '../../assets/images/baseline_add_black_24dp.png'},
+          icon: './assets/images/baseline_add_black_24dp.png'},
         { text: 'Split Route',
           callback: (e:any) => { this.splitRoute(e, newObj); },index: 9,
-          icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+          icon: './assets/images/baseline_call_split_black_24dp.png'},
         { text: 'Show/Hide Route points',
           callback: (e:any) => { this.showHidePoints(  newObj); },index: 10,
-          icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+          icon: './assets/images/baseline_visibility_black_24dp.png'},
         { text: 'Reverse Route',
           callback: (e:any) => { this.reverseRoute(  newObj); },index: 11,
-          icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+          icon: './assets/images/baseline_sync_alt_24dp.png'},
         { text: 'Copy of Route',
           callback: (e:any) => { this.copyRoute(  newObj); },index: 12,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
         { text: 'Show graph of Route',
           callback: (e:any) => { this.showGraph(newObj.rtept); },index: 13,
-          icon: '../../assets/images/icons8-graph-24.png'},
+          icon: './assets/images/icons8-graph-24.png'},
         { text: 'Transfer Route to Track',
           callback: (e:any) => { this.transferRteToTrk(newObj.rtept); },index: 14,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
         { text: 'Move to other GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'rte'); }, index: 15,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
       ]  
       }
       ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"rte"})}).addTo(this.mymap);
@@ -1142,34 +1142,34 @@ export class MapComponent implements AfterViewInit {
             contextmenuItems: [
             { text: 'Delete Track',
             callback: (e:any) => { this.delRteByClick(e, newObj); },index: 4,
-            icon: '../../assets/images/baseline_delete_black_24dp.png'},
+            icon: './assets/images/baseline_delete_black_24dp.png'},
             { text: 'Continue Track',
             callback: (e:any) => { this.extendTrack(e, newObj); },index: 5,
-            icon: '../../assets/images/baseline_east_black_24dp.png'},
+            icon: './assets/images/baseline_east_black_24dp.png'},
             { text: 'Add Track point',
             callback: (e:any) => { this.addTrackPoint(e, newObj); },index: 6,
-            icon: '../../assets/images/baseline_add_black_24dp.png'},
+            icon: './assets/images/baseline_add_black_24dp.png'},
             { text: 'Split Track',
             callback: (e:any) => { this.splitTrack(e, newObj); },index: 7,
-            icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+            icon: './assets/images/baseline_call_split_black_24dp.png'},
             { text: 'Show/Hide Track points',
             callback: (e:any) => { this.showHidePoints(newObj); },index: 8,
-            icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+            icon: './assets/images/baseline_visibility_black_24dp.png'},
             { text: 'Reverse Track',
             callback: (e:any) => { this.reverseTrack(newObj); },index: 9,
-            icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+            icon: './assets/images/baseline_sync_alt_24dp.png'},
             { text: 'Copy of Track',
             callback: (e:any) => { this.copyTrack(newObj); },index: 10,
-            icon: '../../assets/images/content_copy_FILL_24pd.png'},
+            icon: './assets/images/content_copy_FILL_24pd.png'},
             { text: 'Show graph of Track',
             callback: (e:any) => { this.showGraph(newObj.trkpt); },index: 11,
-            icon: '../../assets/images/icons8-graph-24.png'},
+            icon: './assets/images/icons8-graph-24.png'},
             { text: 'Move Track to other GPX',
             callback: (e:any) => { this.moveToGpx(newObj, 'trk'); }, index: 12,
-            icon: '../../assets/images/baseline_move_black_24dp.png'},
+            icon: './assets/images/baseline_move_black_24dp.png'},
             { text: 'Move Track segment to another GPX',
             callback: (e:any) => { this.moveToGpx(newObj, 'trkseg'); }, index: 13,
-            icon: '../../assets/images/baseline_move_black_24dp.png'}
+            icon: './assets/images/baseline_move_black_24dp.png'}
           ]  
           }
           ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"trkseg"})}).addTo(this.mymap);
@@ -1240,34 +1240,34 @@ export class MapComponent implements AfterViewInit {
           contextmenuItems: [
           { text: 'Delete Track',
           callback: (e:any) => { this.delTrkByClick(e, this.extendObj); },index: 4,
-          icon: '../../assets/images/baseline_delete_black_24dp.png'},
+          icon: './assets/images/baseline_delete_black_24dp.png'},
           { text: 'Continue Track',
           callback: (e:any) => { this.extendTrack(e, this.extendObj); },index: 5,
-          icon: '../../assets/images/baseline_east_black_24dp.png'},
+          icon: './assets/images/baseline_east_black_24dp.png'},
           { text: 'Add Track point',
           callback: (e:any) => { this.addTrackPoint(e, this.extendObj); },index: 6,
-          icon: '../../assets/images/baseline_add_black_24dp.png'},
+          icon: './assets/images/baseline_add_black_24dp.png'},
           { text: 'Split Track',
           callback: (e:any) => { this.splitTrack(e, this.extendObj); },index: 7,
-          icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+          icon: './assets/images/baseline_call_split_black_24dp.png'},
           { text: 'Show/Hide Track points',
           callback: (e:any) => { this.showHidePoints(this.extendObj); },index: 8,
-          icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+          icon: './assets/images/baseline_visibility_black_24dp.png'},
           { text: 'Reverse Track',
           callback: (e:any) => { this.reverseTrack( this.extendObj); },index: 9,
-          icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+          icon: './assets/images/baseline_sync_alt_24dp.png'},
           { text: 'Copy of Track',
           callback: (e:any) => { this.copyTrack(this.extendObj); },index: 10,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
           { text: 'Show graph of Track',
           callback: (e:any) => { this.showGraph(this.extendObj.trkpt); },index: 11,
-          icon: '../../assets/images/icons8-graph-24.png'},
+          icon: './assets/images/icons8-graph-24.png'},
           { text: 'Move Track to other GPX',
           callback: (e:any) => { this.moveToGpx(this.extendObj, 'trk'); }, index: 12,
-          icon: '../../assets/images/baseline_move_black_24dp.png'},
+          icon: './assets/images/baseline_move_black_24dp.png'},
           { text: 'Move Track segment to another GPX',
           callback: (e:any) => { this.moveToGpx(this.extendObj, 'trkseg'); }, index: 13,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
         ]  
         }
         ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"trkseg"})}).addTo(this.mymap);
@@ -1441,7 +1441,7 @@ export class MapComponent implements AfterViewInit {
     */
 
     //let url = 'https://api.opentopodata.org/v1/aster30m?locations=' + waypoints
-    let url = 'https://janjanousek.cz/Proxy.php?params=' + encodeURIComponent( 'locations=' + waypoints);
+    let url = 'https://homel.vsb.cz/~jan0750/Proxy.php?params=' + encodeURIComponent( 'locations=' + waypoints);
     let data = await this.http.get(url).toPromise();
     
    /*
@@ -1675,7 +1675,7 @@ export class MapComponent implements AfterViewInit {
       };
       let img = new Image();
       // baseline_close_black_24dp.png
-       img.src = '../../assets/images/marker-icon.png';
+       img.src = './assets/images/marker-icon.png';
       this.mymap.addEventListener('mousemove', (y:any) => {
         var ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1724,16 +1724,16 @@ export class MapComponent implements AfterViewInit {
           contextmenuItems: [
           { text: 'Delete Waypoint',
           callback: (e:any) => { this.delWtpByClick(e); }, index: 1,
-          icon: '../../assets/images/baseline_close_black_24dp.png'},
+          icon: './assets/images/baseline_close_black_24dp.png'},
           { text: 'Move Waypoint',
           callback: (e:any) => { this.moveTrk(e); }, index: 2,
-          icon: '../../assets/images/baseline_open_with_black_24dp.png'},
+          icon: './assets/images/baseline_open_with_black_24dp.png'},
           { text: 'Copy of Waypoint',
           callback: (e:any) => { this.copyWaypoint(e); }, index: 3,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
           { text: 'Move to another GPX',
           callback: (e:any) => { this.moveToGpx(obj, 'wtp'); }, index: 4,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
           
         ]  
         }  
@@ -1754,16 +1754,16 @@ export class MapComponent implements AfterViewInit {
           contextmenuItems: [
           { text: 'Delete Waypoint',
           callback: (e:any) => { this.delWtpByClick(e); }, index: 1,
-          icon: '../../assets/images/baseline_close_black_24dp.png'},
+          icon: './assets/images/baseline_close_black_24dp.png'},
           { text: 'Move Waypoint',
           callback: (e:any) => { this.moveRte(e); }, index: 2,
-          icon: '../../assets/images/baseline_open_with_black_24dp.png'},
+          icon: './assets/images/baseline_open_with_black_24dp.png'},
           { text: 'Copy of Waypoint',
           callback: (e:any) => { this.copyWaypoint(e); }, index: 3,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
           { text: 'Move to another GPX',
           callback: (e:any) => { this.moveToGpx(obj, 'wtp'); }, index: 4,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
         ]  
         }  
         ).on('dblclick', (e:any)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"wtp"})}).addTo(this.mymap);
@@ -1796,16 +1796,16 @@ export class MapComponent implements AfterViewInit {
       contextmenuItems: [
       { text: 'Delete Waypoint',
       callback: (e:any) => { this.delWtpByClick(e); }, index: 1,
-      icon: '../../assets/images/baseline_close_black_24dp.png'},
+      icon: './assets/images/baseline_close_black_24dp.png'},
       { text: 'Move Waypoint',
       callback: (e:any) => { this.moveWtp(e); }, index: 2,
-      icon: '../../assets/images/baseline_open_with_black_24dp.png'},
+      icon: './assets/images/baseline_open_with_black_24dp.png'},
       { text: 'Copy of Waypoint',
       callback: (e:any) => { this.copyWaypoint(e); }, index: 3,
-      icon: '../../assets/images/content_copy_FILL_24pd.png'},
+      icon: './assets/images/content_copy_FILL_24pd.png'},
       { text: 'Move to another GPX',
       callback: (e:any) => { this.moveToGpx(newObj, 'wtp'); }, index: 4,
-      icon: '../../assets/images/baseline_move_black_24dp.png'}
+      icon: './assets/images/baseline_move_black_24dp.png'}
 
     ]  
     }  
@@ -1831,34 +1831,34 @@ export class MapComponent implements AfterViewInit {
           contextmenuItems: [
           { text: 'Delete Track',
           callback: (e:any) => { this.delTrkByClick(e, newObj); },index: 4,
-          icon: '../../assets/images/baseline_delete_black_24dp.png'},
+          icon: './assets/images/baseline_delete_black_24dp.png'},
           { text: 'Continue Track',
           callback: (e:any) => { this.extendTrack(e, newObj); },index: 5,
-          icon: '../../assets/images/baseline_east_black_24dp.png'},
+          icon: './assets/images/baseline_east_black_24dp.png'},
           { text: 'Add Track point',
           callback: (e:any) => { this.addTrackPoint(e, newObj); },index: 6,
-          icon: '../../assets/images/baseline_add_black_24dp.png'},
+          icon: './assets/images/baseline_add_black_24dp.png'},
           { text: 'Split Track',
           callback: (e:any) => { this.splitTrack(e, newObj); },index: 7,
-          icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+          icon: './assets/images/baseline_call_split_black_24dp.png'},
           { text: 'Show/Hide Track points',
           callback: (e:any) => { this.showHidePoints( newObj); },index: 8,
-          icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+          icon: './assets/images/baseline_visibility_black_24dp.png'},
           { text: 'Reverse Track',
           callback: (e:any) => { this.reverseTrack(newObj); },index: 9,
-          icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+          icon: './assets/images/baseline_sync_alt_24dp.png'},
           { text: 'Copy of Track',
           callback: (e:any) => { this.copyTrack(newObj); },index: 10,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
           { text: 'Show graph of Track',
           callback: (e:any) => { this.showGraph(newObj.trkpt); },index: 11,
-          icon: '../../assets/images/icons8-graph-24.png'},
+          icon: './assets/images/icons8-graph-24.png'},
           { text: 'Move Track to other GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'trk'); }, index: 12,
-          icon: '../../assets/images/baseline_move_black_24dp.png'},
+          icon: './assets/images/baseline_move_black_24dp.png'},
           { text: 'Move Track segment to another GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'trkseg'); }, index: 13,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
         ]  
         }
         ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"trkseg"})}).addTo(this.mymap);
@@ -1894,34 +1894,34 @@ export class MapComponent implements AfterViewInit {
         contextmenuItems: [
         { text: 'Delete Route',
         callback: (e:any) => { this.delRteByClick(e, newObj); },index: 6,
-        icon: '../../assets/images/baseline_close_black_24dp.png'},
+        icon: './assets/images/baseline_close_black_24dp.png'},
         { text: 'Continue Route',
           callback: (e:any) => { this.extendRoute(e, newObj); },index: 7,
-          icon: '../../assets/images/baseline_east_black_24dp.png'},
+          icon: './assets/images/baseline_east_black_24dp.png'},
         { text: 'Add Route point',
           callback: (e:any) => { this.addRoutePoint(e, newObj); },index: 8,
-          icon: '../../assets/images/baseline_add_black_24dp.png'},
+          icon: './assets/images/baseline_add_black_24dp.png'},
         { text: 'Split Route',
           callback: (e:any) => { this.splitRoute(e, newObj); },index: 9,
-          icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+          icon: './assets/images/baseline_call_split_black_24dp.png'},
         { text: 'Show/Hide Route points',
           callback: (e:any) => { this.showHidePoints(  newObj); },index: 10,
-          icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+          icon: './assets/images/baseline_visibility_black_24dp.png'},
         { text: 'Reverse Route',
           callback: (e:any) => { this.reverseRoute(  newObj); },index: 11,
-          icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+          icon: './assets/images/baseline_sync_alt_24dp.png'},
         { text: 'Copy of Route',
           callback: (e:any) => { this.copyRoute(  newObj); },index: 12,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
         { text: 'Show graph of Route',
           callback: (e:any) => { this.showGraph(newObj.rtept); },index: 13,
-          icon: '../../assets/images/icons8-graph-24.png'},
+          icon: './assets/images/icons8-graph-24.png'},
         { text: 'Transfer Route to Track',
           callback: (e:any) => { this.transferRteToTrk(newObj.rtept); },index: 14,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
         { text: 'Move to other GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'rte'); }, index: 15,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
       ]  
       }
       ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"rte"})}).addTo(this.mymap);
@@ -2035,34 +2035,34 @@ export class MapComponent implements AfterViewInit {
           contextmenuItems: [
           { text: 'Delete Track',
           callback: (e:any) => { this.delTrkByClick(e, newObj); },index: 4,
-          icon: '../../assets/images/baseline_delete_black_24dp.png'},
+          icon: './assets/images/baseline_delete_black_24dp.png'},
           { text: 'Continue Track',
           callback: (e:any) => { this.extendTrack(e, newObj); },index: 5,
-          icon: '../../assets/images/baseline_east_black_24dp.png'},
+          icon: './assets/images/baseline_east_black_24dp.png'},
           { text: 'Add Track point',
           callback: (e:any) => { this.addTrackPoint(e, newObj); },index: 6,
-          icon: '../../assets/images/baseline_add_black_24dp.png'},
+          icon: './assets/images/baseline_add_black_24dp.png'},
           { text: 'Split Track',
           callback: (e:any) => { this.splitTrack(e, newObj); },index: 7,
-          icon: '../../assets/images/baseline_call_split_black_24dp.png'},
+          icon: './assets/images/baseline_call_split_black_24dp.png'},
           { text: 'Show/Hide Track points',
           callback: (e:any) => { this.showHidePoints( newObj); },index: 8,
-          icon: '../../assets/images/baseline_visibility_black_24dp.png'},
+          icon: './assets/images/baseline_visibility_black_24dp.png'},
           { text: 'Reverse Track',
           callback: (e:any) => { this.reverseTrack(newObj); },index: 9,
-          icon: '../../assets/images/baseline_sync_alt_24dp.png'},
+          icon: './assets/images/baseline_sync_alt_24dp.png'},
           { text: 'Copy of Track',
           callback: (e:any) => { this.copyTrack(newObj); },index: 10,
-          icon: '../../assets/images/content_copy_FILL_24pd.png'},
+          icon: './assets/images/content_copy_FILL_24pd.png'},
           { text: 'Show graph of Track',
           callback: (e:any) => { this.showGraph(newObj.trkpt); },index: 11,
-          icon: '../../assets/images/icons8-graph-24.png'},
+          icon: './assets/images/icons8-graph-24.png'},
           { text: 'Move Track to other GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'trk'); }, index: 12,
-          icon: '../../assets/images/baseline_move_black_24dp.png'},
+          icon: './assets/images/baseline_move_black_24dp.png'},
           { text: 'Move Track segment to another GPX',
           callback: (e:any) => { this.moveToGpx(newObj, 'trkseg'); }, index: 13,
-          icon: '../../assets/images/baseline_move_black_24dp.png'}
+          icon: './assets/images/baseline_move_black_24dp.png'}
         ]  
         }
         ).on('dblclick', (e)=> {this.loadGPXService.editObjByDblClick({obj:e.sourceTarget.myData, type:"trkseg"})}).addTo(this.mymap);

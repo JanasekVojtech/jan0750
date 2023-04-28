@@ -158,6 +158,25 @@ export class TreeComponent  implements OnInit{
     
   }
 
+  async parseGPX(id:any){
+    
+    if(id != null){
+      for(let i = 0; i<this.TREE_DATA.length;i++){
+
+        if(this.TREE_DATA[i].id == id){
+          
+          if(!this.TREE_DATA[i].parsed){
+           
+            await this.loadGPXService.addToTree(id)
+            this.refresh()
+            }
+          }
+        }
+      }
+      
+    
+  }
+
   async showFullGpx(node:GpxNode, mode:boolean){
     for(let i = 0; i<this.TREE_DATA.length;i++){
       

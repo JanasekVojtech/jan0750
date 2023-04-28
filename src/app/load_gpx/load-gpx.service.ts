@@ -689,7 +689,7 @@ export class LoadGPXService  {
       const url = URL.createObjectURL(myBlob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = name;
+      a.download = name + ".gpx";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

@@ -11,7 +11,10 @@
   </div>
 -->
   <div class="modeSelect">
-    <button  class="mat-raised-button mat-primary" (click)="exitDrawing()">Exit drawing</button>
+    <div class="buttons" >
+      <button  class="mat-raised-button" (click)="exitDrawing()" *ngIf="this.addTrk||this.addRte||this.addTrkAuto||this.extendTrk||this.extendRte">Exit drawing</button>
+    </div>
+    
     Routing(car, bike, walking)
    <mat-form-field>
      <mat-select name="autRouting" [(value)]=routingSelect (selectionChange)="onValChangeMode($event.value)" >

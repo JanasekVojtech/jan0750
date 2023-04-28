@@ -34,6 +34,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import {MatSelectModule} from '@angular/material/select';
 import { MoveToGpxDialogComponent } from './map/move-to-gpx-dialog/move-to-gpx-dialog.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { TutorialDialogComponent } from './tutorial-dialog/tutorial-dialog.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -47,6 +48,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
         TreksegDialogComponent,
         FileRenameDialogComponent,
         MoveToGpxDialogComponent,
+        TutorialDialogComponent,
     ],
     //entryComponents:[MoveToGpxDialogComponent],
     imports: [

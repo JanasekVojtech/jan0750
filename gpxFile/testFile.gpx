@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gpx version="1.1" creator="GPX Editor 1.7.15.1743" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" xmlns:gte="http://www.gpstrackeditor.com/xmlschemas/General/1">
+<metadata>
+	<name>export.gpx</name>
+	<bounds minlat="49.481877" minlon="18.160603" maxlat="49.668904" maxlon="18.665204" />
+</metadata>
+<wpt lat="49.596915" lon="18.295326">
+	<name>Favourite place</name>
+	<src>Leaflet</src>
+	<fix>2d</fix>
+</wpt>
+<wpt lat="49.638966" lon="18.087629">
+	<name>Test</name>
+	<src>Leaflet</src>
+	<fix>2d</fix>
+</wpt>
+
+<rte>
+	<name>OSM Route #0</name>
+	<rtept lat="49.598695" lon="18.198509">
+		<src>Leaflet</src>
+		<fix>2d</fix>
+	</rtept>
+	<rtept lat="49.647848" lon="18.303909">
+		<src>Leaflet</src>
+		<fix>2d</fix>
+	</rtept>
+	<rtept lat="49.632729" lon="18.449478">
+		<src>Leaflet</src>
+		<fix>2d</fix>
+	</rtept>
+	<rtept lat="49.662295" lon="18.490677">
+		<src>Leaflet</src>
+		<fix>2d</fix>
+	</rtept>
+<extensions>
+  <gpxx:RouteExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+    <gpxx:DisplayColor>Magenta</gpxx:DisplayColor>
+  </gpxx:RouteExtension>
+</extensions>
+</rte>
+
+<trk>
+	<name>test Track</name>
+	<trkseg>
+		<trkpt lat="49.668904" lon="18.665156">
+			<ele>336</ele>
+			<time>2020-08-24T05:32:59Z</time>
+		</trkpt>	
+		<trkpt lat="49.659124" lon="18.663893">
+			<ele>355</ele>
+			<time>2020-08-24T05:48:27.750Z</time>
+		</trkpt>		
+		<trkpt lat="49.655274" lon="18.656158">
+			<ele>356</ele>
+			<time>2020-08-24T06:02:29.140Z</time>
+		</trkpt>		
+		<trkpt lat="49.65111" lon="18.64484">
+			<ele>365</ele>
+			<time>2020-08-24T06:17:03.730Z</time>
+		</trkpt>
+		<trkpt lat="49.644392" lon="18.64201">
+			<ele>407</ele>
+			<time>2020-08-24T06:27:48.830Z</time>
+		</trkpt>
+		<trkpt lat="49.639098" lon="18.638084">
+			<ele>476</ele>
+			<time>2020-08-24T06:37:00.650Z</time>
+		</trkpt>
+		<trkpt lat="49.633641" lon="18.629972">
+			<ele>730</ele>
+			<time>2020-08-24T06:48:00.340Z</time>
+		</trkpt>
+		<trkpt lat="49.625198" lon="18.625049">
+			<ele>941</ele>
+			<time>2020-08-24T07:00:40.400Z</time>
+		</trkpt>
+		<trkpt lat="49.61804" lon="18.603426">
+			<ele>920</ele>
+			<time>2020-08-24T07:29:00.670Z</time>
+		</trkpt>
+		<trkpt lat="49.609676" lon="18.596321">
+			<ele>789</ele>
+			<time>2020-08-24T07:42:45.040Z</time>
+		</trkpt>
+		<trkpt lat="49.605746" lon="18.590185">
+			<ele>709</ele>
+			<time>2020-08-24T07:55:05.150Z</time>
+		</trkpt>
+		<trkpt lat="49.611161" lon="18.586736">
+			<ele>581</ele>
+			<time>2020-08-24T08:08:07.630Z</time>
+		</trkpt>
+		<trkpt lat="49.605776" lon="18.572354">
+			<ele>940</ele>
+			<time>2020-08-24T08:30:58.240Z</time>
+		</trkpt>
+		<trkpt lat="49.599936" lon="18.560496">
+			<ele>769</ele>
+			<time>2020-08-24T08:48:33.170Z</time>
+		</trkpt>
+		<trkpt lat="49.598731" lon="18.545153">
+			<ele>671</ele>
+			<time>2020-08-24T09:02:47.500Z</time>
+		</trkpt>
+		<trkpt lat="49.594551" lon="18.530646">
+			<ele>471</ele>
+			<time>2020-08-24T09:17:16.150Z</time>
+		</trkpt>
+		<trkpt lat="49.592705" lon="18.522264">
+			<ele>471</ele>
+			<time>2020-08-24T09:28:39.340Z</time>
+		</trkpt>
+		<trkpt lat="49.587766" lon="18.519165">
+			<ele>649</ele>
+			<time>2020-08-24T09:37:02.560Z</time>
+		</trkpt>
+		<trkpt lat="49.574568" lon="18.52565">
+			<ele>920</ele>
+			<time>2020-08-24T09:59:31.580Z</time>
+		</trkpt>
+		<trkpt lat="49.564076" lon="18.511538">
+			<ele>1015</ele>
+			<time>2020-08-24T10:22:30.060Z</time>
+		</trkpt>		<trkpt lat="49.57458" lon="18.49871">
+			<ele>945</ele>
+			<time>2020-08-24T10:41:13.140Z</time>
+		</trkpt>		
+		<trkpt lat="49.585187" lon="18.491263">
+			<ele>684</ele>
+			<time>2020-08-24T10:57:13.140Z</time>
+		</trkpt>
+		<trkpt lat="49.582916" lon="18.482397">
+			<ele>525</ele>
+			<time>2020-08-24T11:07:45.620Z</time>
+		</trkpt>
+		<trkpt lat="49.587295" lon="18.474977">
+			<ele>483</ele>
+			<time>2020-08-24T11:26:10.330Z</time>
+		</trkpt>
+		<trkpt lat="49.586695" lon="18.464457">
+			<ele>552</ele>
+			<time>2020-08-24T11:37:37.620Z</time>
+		</trkpt>
+		<trkpt lat="49.583369" lon="18.449608">
+			<ele>693</ele>
+			<time>2020-08-24T11:54:00.180Z</time>
+		</trkpt>
+		<trkpt lat="49.584139" lon="18.444515">
+			<ele>748</ele>
+			<time>2020-08-24T12:03:01.200Z</time>
+		</trkpt>
+		<trkpt lat="49.584342" lon="18.441595">
+			<ele>826</ele>
+			<time>2020-08-24T12:12:12.750Z</time>
+		</trkpt>
+		<trkpt lat="49.575728" lon="18.432999">
+			<ele>924</ele>
+			<time>2020-08-24T12:37:47.960Z</time>
+		</trkpt>
+		<trkpt lat="49.575529" lon="18.428238">
+			<ele>824</ele>
+			<time>2020-08-24T12:57:30.220Z</time>
+		</trkpt>
+		<trkpt lat="49.571673" lon="18.425085">
+			<ele>752</ele>
+			<time>2020-08-24T13:09:21.540Z</time>
+		</trkpt>
+		<trkpt lat="49.568329" lon="18.42972">
+			<ele>673</ele>
+			<time>2020-08-24T13:16:59.760Z</time>
+		</trkpt>
+		<trkpt lat="49.564395" lon="18.426235">
+			<ele>656</ele>
+			<time>2020-08-24T13:30:38.540Z</time>
+		</trkpt>
+		<trkpt lat="49.559689" lon="18.442234">
+			<ele>1037</ele>
+			<time>2020-08-24T13:50:56.160Z</time>
+		</trkpt>
+		<trkpt lat="49.549508" lon="18.448486">
+			<ele>1218</ele>
+			<time>2020-08-24T14:06:10.350Z</time>
+		</trkpt>
+		<trkpt lat="49.547608" lon="18.448297">
+			<ele>1292</ele>
+			<time>2020-08-24T14:10:10.390Z</time>
+		</trkpt>		
+<extensions>
+  <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+    <gpxx:DisplayColor>Orange</gpxx:DisplayColor>
+  </gpxx:TrackExtension>
+</extensions>
+	</trkseg>
+	
+</trk>
+
+</gpx>

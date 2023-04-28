@@ -24,11 +24,14 @@
   .buttons{
     position:absolute;
     z-index: 2;
-    left: 40%;
+    margin: 10px;
+    right: 365px;
     
   }
 
   .modeSelect{
+    padding-left: 5px;
+    padding-right: 5px;
     position:absolute;
     top: 0px;
     z-index: 2000;

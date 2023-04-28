@@ -1,7 +1,8 @@
 import { Component, OnInit , ViewChild, ElementRef } from '@angular/core';
 import { LoadGPXService} from './load_gpx/load-gpx.service';
 import { MatSidenav } from '@angular/material/sidenav';
-
+import { TutorialDialogComponent } from './tutorial-dialog/tutorial-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit{
 
   
 
-  constructor(public LocalStorage:LoadGPXService){
+  constructor(public LocalStorage:LoadGPXService, private matDialog : MatDialog,){
     
   }
 
@@ -41,6 +42,21 @@ newGpxFile(){
 ngOnInit(): void { 
   this.LocalStorage.printAll();
 }
+
+createTurorial(){
+  let dialogRef1 = this.matDialog.open(TutorialDialogComponent, 
+    {
+      disableClose: true
+  });
+
+  dialogRef1.afterClosed().subscribe(
+    result =>{
+      
+    }
+  )
+}
+
+
 
 
 
